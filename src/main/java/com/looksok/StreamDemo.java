@@ -15,15 +15,9 @@ class StreamDemo{
     }
 
     private static void runStreamDemo() {
-//        namesDemo();
-
+        namesDemo();
         userDemo();
     }
-
-
-
-
-
 
     private static void namesDemo() {
         List<String> names = new ArrayList<String>();
@@ -42,51 +36,17 @@ class StreamDemo{
         System.out.println(collect);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private static void userDemo() {
-        List<User> names = new ArrayList<User>();
-        names.add(new User("John", 21));
-        names.add(new User("Jack", 13));
-        names.add(new User("Joe", 56));
-        names.add(new User("Michelle", 37));
+        List<User> users = new ArrayList<User>();
+        users.add(new User("John", 21));
+        users.add(new User("Jack", 13));
+        users.add(new User("Joe", 56));
+        users.add(new User("Michelle", 37));
 
-        Stream<User> result = names.stream()
-                .filter(item -> {
-                    return item.getAge() > 50;
-                });
-//                .collect(toList());
-
-//        result.
-//                forEach(System.out::println);
-
-        names.add(new User("Arnold", 38));
-
-        result.
-                forEach(System.out::println);
-
-
-        System.out.println(result);
+        users.stream()
+                .filter(item -> item.getAge() > 18)
+                .sorted((item1, item2) -> (item1.getAge() - item2.getAge()))
+                .forEach(System.out::println);
     }
 
 }
